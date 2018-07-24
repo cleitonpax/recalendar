@@ -11,6 +11,7 @@
 }
 .next, .last{
   opacity: 0.7;
+  cursor: not-allowed !important;
 }
 .btn-group>.btn.active,
 .btn-group>.btn:hover{

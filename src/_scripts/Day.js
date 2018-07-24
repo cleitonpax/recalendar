@@ -1,11 +1,12 @@
 import React, { Component } from "react"; // eslint-disable-line no-unused-vars
+import moment from "moment";
 import '../_styles/day.css';
 import { setClass } from "./";
 
 class Day extends Component {    
     mouseDown(day) {
         const { isSelecting, month, setState } = this.props;       
-        const daysDiff = (month - new Date(day.date).getMonth());   
+        const daysDiff = (month - moment(day.date)._d.getMonth());   
         const selectedDays = {
             start: day.formated,
             end: day.formated,
@@ -18,8 +19,8 @@ class Day extends Component {
     }
 
     mouseUp(day) {
-        const { isSelecting, selectedDays, setState, multiSelect } = this.props;        
-        if (multiSelect && isSelecting && (new Date(selectedDays.start).getMonth() - new Date(day.date).getMonth()) === 0) {
+        const { isSelecting, selectedDays, setState, multiSelect } = this.props;  
+        if (multiSelect && isSelecting && (moment(selectedDays.start)._d.getMonth() - moment(day.date)._d.getMonth()) === 0) {
             const isBigger = day.date >= selectedDays.start;
             const start = isBigger ? selectedDays.start : day.formated;
             const end = isBigger ? day.formated : selectedDays.start;
@@ -29,7 +30,7 @@ class Day extends Component {
 
     mouseOver(day) {
         const { isSelecting, selectedDays, setState, multiSelect } = this.props;
-        (multiSelect && isSelecting && (new Date(selectedDays.start).getMonth() - new Date(day.date).getMonth()) === 0) 
+        (multiSelect && isSelecting && (moment(selectedDays.start)._d.getMonth() - moment(day.date)._d.getMonth()) === 0) 
             ? setState({ selectedDays: { start: selectedDays.start, end: day.formated } })
             : setState({ isSelecting: false });        
     }

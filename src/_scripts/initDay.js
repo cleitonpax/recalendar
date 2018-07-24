@@ -7,7 +7,7 @@ export function initDay(day, month, holidays, schedule) {
     return {
         month,
         formated: moment(day).format("YYYY-MM-DD"),
-        date: new Date(day),
+        date: moment(day)._d,
         day: day.getDate(),
         week: day.getDay(),
         util: holiday && holiday.lenght !== 0 ? false : true,
