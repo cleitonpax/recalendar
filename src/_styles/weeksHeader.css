@@ -1,0 +1,12 @@
+.WeeksHeader{
+    display: inline-block;  
+    width: 100%;
+    font-size: 0.6rem
+}
+.WeeksHeader > div{
+    display: grid !important;
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}

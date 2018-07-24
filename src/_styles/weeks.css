@@ -1,0 +1,15 @@
+.Weeks{
+  display: inline-block;  
+  width: 100%;
+}
+.Weeks > .btn-group{
+  display: grid !important;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+.btn-group > .btn:first-child {
+  margin-left: -1px !important;
+}

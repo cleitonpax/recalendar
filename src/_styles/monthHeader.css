@@ -1,0 +1,39 @@
+.Header{
+  display: inline-block;
+  width: 100%;
+}
+.Header > div {
+  display: grid !important;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 1fr 5fr 1fr;
+}
+.dropdown{
+  display: inline-block;
+  height: 30px;
+  width: 120px;
+}
+.dropdown > div{
+  border: 0;
+  background: transparent;
+  box-shadow: 0 0 transparent;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.dropdown .css-va7pk8{
+  color: #6c757d!important;
+  cursor: pointer;
+}
+.dropdown .css-1wy0on6{
+  display: none;
+}
+.dropdown .css-15k3avv{
+  box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.2);
+  border:0 !important;
+  transition: 0.4ms linear display;
+  border-radius: 0;
+}
+.divisor{
+  display: inline-block;
+}

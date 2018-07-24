@@ -1,0 +1,36 @@
+.day {
+  min-height: 70px !important;
+  border: 1px solid #7c868e !important;
+  border-top: 0 !important;
+  border-left: 0 !important;
+}
+.day h6{
+  text-align: left;
+  font-weight: 100;
+  font-size: 0.8rem;
+}
+.next, .last{
+  opacity: 0.7;
+}
+.btn-group>.btn.active,
+.btn-group>.btn:hover{
+  z-index: 0 !important;
+}
+.holiday{
+  background: #3f5d78 !important;
+}
+.holiday-info{
+  font-size: 0.55rem;
+  opacity: 0.5;
+  text-align: right;
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 80%;
+  float: right;
+  padding-top: 5px;
+}
+.info{
+  text-align: left;
+  font-size: 0.8rem;
+}
