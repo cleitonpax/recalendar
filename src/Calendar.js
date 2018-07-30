@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import Holidays from 'date-holidays';
 import { updateCalendar, formatDate } from './_scripts';
-import MonthHeader from './_scripts/MonthHeader';
-import WeeksHeader from './_scripts/WeeksHeader';
-import Weeks from './_scripts/Weeks';
+import MonthHeader from './_components/MonthHeader';
+import WeeksHeader from './_components/WeeksHeader';
+import Weeks from './_components/Weeks';
 import './_styles/calendar.css';
 
 class Calendar extends Component {
   constructor(props){
     super(props);
     const { start, end } = props;
+    let { contry, state } = props;
     const formated = start ? formatDate(start) : new Date();
-    const holidays = new Holidays('BR','SP').getHolidays(formated.getFullYear());
+    const holidays = new Holidays(contry || 'BR', state || 'SP').getHolidays(formated.getFullYear());
     const multiSelect = props.multiSelect === false ? false : true;
     this.state = {
       ...updateCalendar(start, end, holidays, props.schedule || []),

@@ -3,17 +3,13 @@ import { shallow } from 'enzyme';
 import ReactDOM from 'react-dom';
 import moment from "moment";
 import Calendar from '../Calendar';
-import { getMonthDays } from '../_scripts';
+import { getMonthDays, formatRangeDays } from '../_scripts';
 
 const wrapper = shallow(
   <Calendar />
 );
 const today = new Date();
 const todayFormated = moment(today).format("YYYY-MM-DD");
-
-test('is day todays day', () => {
-  expect(wrapper.state(['day'])).toEqual(today.getDate());
-});
 
 test('is month todays month', () => {
   expect(wrapper.state(['month'])).toEqual(today.getMonth());
@@ -32,5 +28,5 @@ test('days is created', () => {
 });
 
 test('selected days is today', () => {
-  expect(wrapper.state(['selectedDays'])).toEqual({ start: todayFormated, end: todayFormated });
+  expect(wrapper.state(['selectedDays'])).toEqual(formatRangeDays(todayFormated, todayFormated));
 });

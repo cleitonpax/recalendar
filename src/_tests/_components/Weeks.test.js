@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ReactDOM from 'react-dom';
-import Weeks from '../../_scripts/Weeks';
+import Weeks from '../../_components/Weeks';
 import { getMonthDays } from '../../_scripts';
 
 const today = new Date();

@@ -1,11 +1,11 @@
-import { hasClass } from '../../_scripts/';
+import { hasClass, formatRangeDays } from '../../_scripts/';
 
 const today = new Date();
 const yesterday = new Date(today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + (today.getDate() - 1));
 const beforeYesterday = new Date(today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + (today.getDate() - 2));
 const tomorrow = new Date(today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + (today.getDate() + 1));
-const todayObject = { start: today, end: today };
-const yesterdayObject = { start: yesterday, end: yesterday };
+const todayObject = formatRangeDays(today, today);
+const yesterdayObject = formatRangeDays(yesterday, yesterday);
 
 test("is selected", () => {
   expect(hasClass(yesterday, yesterdayObject, todayObject)).toEqual(' active ')

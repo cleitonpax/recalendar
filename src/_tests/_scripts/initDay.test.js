@@ -4,16 +4,42 @@ import ReactDOM from 'react-dom';
 import moment from "moment";
 import { initDay } from '../../_scripts/';
 
-const today = new Date();
-const mock = {
-  month: today.getMonth() + 1,
+const today = moment()._d;
+const ordinaryDay = {
+  month: today.getMonth(),
   formated: moment(today).format("YYYY-MM-DD"),
   date: today,
   day: today.getDate(),
   week: today.getDay(),
   util: true,
+  holiday: {},
+  info: ''
 };
+const holidays = [
+  {
+    date: today
+  }
+];
+const schedule = [
+  {
+    start: today,
+    title: 'Title'
+  }
+];
 
-test("day object to be filled", () => {
-  expect(initDay(today, today.getMonth() + 1)).toEqual(mock)
+test("one ordinary day", () => {
+  expect(initDay(today, today.getMonth(), [], [])).toEqual(ordinaryDay)
+})
+
+test("is holiday yey", () => {
+  let holiday = Object.assign({}, ordinaryDay);
+  holiday['util'] = false;
+  holiday['holiday'] = holidays[0];
+  expect(initDay(today, today.getMonth(), holidays, [])).toEqual(holiday)
+})
+
+test("has schedule", () => {
+  let info = Object.assign({}, ordinaryDay);
+  info['info'] = schedule[0].title;
+  expect(initDay(today, today.getMonth(), [], schedule)).toEqual(info)
 })

@@ -1,6 +1,6 @@
 import { initDay } from "./";
 
-export function getMonthDays(year, month, holidays, schedule) {    
+export function getMonthDays(year, month, holidays, schedule) { 
     let date = new Date(year, month, 1);
     let out = [];
     for(date; date.getMonth() === month; date.setDate(date.getDate() + 1)) {
