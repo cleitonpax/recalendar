@@ -2,6 +2,8 @@
 
 Month based calendar plugin for ReactJs 16.4.1 and Bootstrap. 
 
+![alt text](https://raw.githubusercontent.com/cleitonpax/recalendar/master/src/screen.png)
+
 No Redux, just props.
 
 Use momentJs locale for date formats and holidays.
